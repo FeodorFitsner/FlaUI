@@ -8,3 +8,6 @@ build_script:
 
 test_script:
 - RunTests.bat
+
+on_finish:
+- ps: Start-Sleep -s 1800
