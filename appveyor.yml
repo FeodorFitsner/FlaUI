@@ -1,0 +1,10 @@
+install:
+- powershell -File AdjustConfig.ps1
+- nuget restore src\FlaUI.sln
+
+build_script:
+- msbuild "C:\projects\flaui\src\FlaUI.sln" /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+- powershell -File CreateArtefacts.ps1
+
+test_script:
+- RunTests.bat
